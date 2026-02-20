@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Library — A Curated Digital Archive",
+  title: "Library",
   description: "A refined collection of research papers and deep-dive write-ups designed for the intellectual explorer.",
 };
 
