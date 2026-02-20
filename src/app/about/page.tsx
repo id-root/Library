@@ -158,7 +158,7 @@ export default function AboutPage() {
                             </a>
 
                             <a
-                                href="https://portfolio-id-root-vercel.app"
+                                href="https://portfolio-id-root.vercel.app"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 px-6 py-3 rounded-xl border border-[var(--color-primary)]/20 dark:border-[var(--color-primary)]/10 bg-white/50 dark:bg-white/[0.02] text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-[var(--color-primary)]/10 hover:border-[var(--color-primary)]/40 hover:text-[var(--color-emerald-800)] dark:hover:text-[var(--color-primary)] transition-all group shadow-sm !no-underline"
