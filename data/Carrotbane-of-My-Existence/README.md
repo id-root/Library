@@ -393,9 +393,9 @@ DNS_PORT=5380OLLAMA_MODEL=qwen3:0.6bLANG=C.UTF-8GPG_KEY=A035C8C19219BA821ECEA86B
 
 🎉 **FLAG 1 FOUND!** 🎉
 
-```
-FLAG_1=THM{9cd687b330554bd807a717e62910e3d0}
-```
+
+> FLAG_1=THM{9cd687b330554bd807a717e62910e3d0}
+
 
 
 ***
@@ -625,7 +625,7 @@ HopAI Technologies
 ```
 
 🎉 **FLAG 2 FOUND!** 🎉
- `Flag #2: THM{39564de94a133349e3d76a91d3f0501c}`
+> Flag #2: THM{39564de94a133349e3d76a91d3f0501c}
 
 ## Stage 3: Ticketing System & AI Prompt Injection
 
@@ -677,7 +677,7 @@ Flag \#3: THM{3a07cd4e05ce03d953a22e90122c6a89}
 ```
 
 🎉 **FLAG 3 FOUND!** 🎉
-`Flag \#3: THM{3a07cd4e05ce03d953a22e90122c6a89}`
+> Flag \#3: THM{3a07cd4e05ce03d953a22e90122c6a89}
 
 ## Stage 4:Internal Network Pivot & Ollama API
 
@@ -752,7 +752,7 @@ grep -o "THM{[^}]*}" response.txt
 ```
 
 🎉 **FLAG 4 FOUND!** 🎉
-`THM{e116666ffb7fcfadc7e6136ca30f75bf}`
+> THM{e116666ffb7fcfadc7e6136ca30f75bf}
 
 
 
