@@ -85,7 +85,7 @@ export const writeupsMeta: WriteupMeta[] = [
 ];
 
 // The base directory where raw writeup markdown files live
-const WRITEUPS_DIR = path.join(process.cwd(), '..'); // parent of website/ = library/
+const WRITEUPS_DIR = '/data';
 
 export function getWriteupMetaBySlug(slug: string): WriteupMeta | undefined {
     return writeupsMeta.find(w => w.slug === slug);
