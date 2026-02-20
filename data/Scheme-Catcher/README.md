@@ -11,7 +11,8 @@
 The actual functionality of the program is concealed by a custom encrypted `.easter` section found in the `beacon.bin` binary. We found a self-decrypting stub that XORs the encrypted code with key `0x0D` using dynamic analysis with GDB. The `payload_load()` function uncovered a hardcoded HTTP path `/7ln6Z1X9EF` built from hex immediates after decryption. This path resulted in a directory listing with the next stage binary and `foothold.txt` (Second flag).
 ### Finding the first binary.
 **Scanning using nmap**
-```
+
+```bash
 $ nmap -sV -p- 10.48.190.204
 
 Starting Nmap 7.94 ( https://nmap.org ) at 2025-12-11 12:00 IST
@@ -27,7 +28,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 234.56 seconds
 ```
 After the scan we used `gobuster` to list hidden directory on port 80
-```
+```bash
 $ gobuster dir -u http://10.48.190.204 -w /usr/share/wordlists/dirb/common.txt 
 
 ===============================================================
@@ -205,7 +206,7 @@ curl http://10.48.190.204/7ln6Z1X9EF/
 
 **Directory Listing Revealed:**
 
-```
+```txt
 Index of /7ln6Z1X9EF
 - foothold.txt               37 bytes
 - 4.2.0-R1-1337-server.zip   5.2M
