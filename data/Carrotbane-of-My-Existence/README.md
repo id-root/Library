@@ -476,7 +476,7 @@ sudo python3 -m aiosmtpd -n -l 0.0.0.0:25 --debug
 
 These are the emails earlier on port 80 :
 
-```
+```text
 Sir Carrotbane
 CEO & Founder
 sir.carrotbane@hopaitech.thm
