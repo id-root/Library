@@ -2,9 +2,7 @@
 **Note:** *You can get the link to this challenge from Advent of cyber 2025 day 17*
 
 **Scrambled Image Source:**  
-The scrambled Easter Egg was available at: 
-
-> https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1765955075920.png
+The scrambled Easter Egg was available at:  [Scrambled-Image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1765955075920.png)
 
 
 To get the real image we just have to reverse the algorithm
