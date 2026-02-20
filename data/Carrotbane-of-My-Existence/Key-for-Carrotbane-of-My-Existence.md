@@ -3,7 +3,9 @@
 
 **Scrambled Image Source:**  
 The scrambled Easter Egg was available at: 
-```https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1765955075920.png```
+```
+https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/5ed5961c6276df568891c3ea-1765955075920.png
+```
 
 To get the real image we just have to reverse the algorithm
 ## The Encryption Algorithm
