@@ -34,9 +34,9 @@ export default function CodeBlock({ children, className }: CodeBlockProps) {
     };
 
     return (
-        <div className="relative group my-8 rounded-xl overflow-hidden shadow-2xl shadow-black/40 bg-[#1e1e1e] ring-1 ring-white/10">
+        <div className="relative group my-8 rounded-xl overflow-hidden shadow-2xl shadow-black/40 bg-[#1e1c1a] border border-emerald-900/30">
             {/* Top Bar matching image */}
-            <div className="flex items-center justify-between px-4 py-3 bg-[#1e1e1e] border-b border-white/5">
+            <div className="flex items-center justify-between px-4 py-3 bg-[#2a2724] border-b border-white/5">
                 <div className="font-mono text-xs text-slate-500 font-medium tracking-wide">
                     {language ? `${language}_code` : 'code_snippet'}
                 </div>
@@ -61,7 +61,7 @@ export default function CodeBlock({ children, className }: CodeBlockProps) {
             </div>
 
             {/* Code Area */}
-            <div className="p-4 overflow-x-auto custom-scrollbar">
+            <div className="p-4 overflow-x-auto custom-scrollbar bg-[#1e1c1a]">
                 <pre className="!mt-0 !mb-0 bg-transparent">
                     <code ref={codeRef} className={`${className || ''} block text-[0.85rem] leading-[1.6] font-[var(--font-mono)] text-slate-300`}>
                         {children}
