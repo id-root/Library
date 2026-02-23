@@ -227,6 +227,10 @@ body.dark {
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
 }
 
+.prose-article pre code.hljs {
+  background: #1e1c1a !important;
+}
+
 .prose-article pre code {
   display: block;
   padding: 1.25rem;
