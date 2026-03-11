@@ -115,58 +115,62 @@ export default function ArticleClient({ meta, markdownSections }: ArticleClientP
 
             <div className="animate-fadeIn">
                 <main className="pt-24 pb-20">
-                {/* Hero Section */}
+                {/* Hero Banner — All metadata merged in */}
                 <div className="max-w-[1200px] mx-auto px-6 mb-12">
-                    {/* Tags */}
-                    <div className="flex items-center gap-3 mb-6 text-xs font-semibold tracking-wider uppercase text-[var(--color-emerald-800)] dark:text-[var(--color-primary)]">
-                        <span className="bg-[var(--color-primary)]/20 px-3 py-1 rounded-full">
-                            {meta.category}
-                        </span>
-                        <span className="text-slate-400 dark:text-slate-600">•</span>
-                        <span>{meta.difficulty}</span>
-                    </div>
-
-                    {/* Title */}
-                    <h1
-                        className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-emerald-950)] dark:text-white leading-[1.1] mb-8 max-w-[960px]"
-                        style={{ fontFamily: 'var(--font-serif)' }}
-                    >
-                        {meta.title}
-                    </h1>
-
-                    {/* Author Metadata */}
-                    <div className="flex items-center gap-4 mb-10 border-b border-[var(--color-primary)]/20 pb-8 max-w-[960px]">
-                        <div className="w-12 h-12 rounded-full overflow-hidden bg-[var(--color-emerald-800)] ring-2 ring-[var(--color-primary)]/30 flex items-center justify-center">
-                            <span className="text-white font-bold text-lg" style={{ fontFamily: 'var(--font-serif)' }}>R</span>
-                        </div>
-                        <div className="flex flex-col">
-                            <span className="text-sm font-bold text-[var(--color-emerald-900)] dark:text-white">Researcher</span>
-                            <span className="text-sm text-slate-500 font-medium">{meta.date}</span>
-                        </div>
-                        <div className="ml-auto text-sm text-slate-500 font-medium hidden sm:block">
-                            {meta.readTime}
-                        </div>
-                    </div>
-
-                    {/* Featured Banner */}
-                    <div className="relative w-full max-w-[960px] aspect-[21/9] rounded-2xl overflow-hidden shadow-xl mb-12 group">
+                    <div className="relative w-full max-w-[960px] rounded-2xl overflow-hidden shadow-xl group">
                         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-emerald-800)] to-[var(--color-emerald-900)]">
                             <div className="absolute inset-0 opacity-20 grain-overlay mix-blend-overlay pointer-events-none" />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="text-center">
-                                    <span className="material-symbols-outlined text-6xl text-[var(--color-primary)]/40">
-                                        terminal
-                                    </span>
-                                    <p
-                                        className="text-[var(--color-primary)]/60 text-xl mt-2 font-light"
-                                        style={{ fontFamily: 'var(--font-serif)' }}
-                                    >
-                                        {meta.category}
-                                    </p>
-                                </div>
-                            </div>
                             <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-[var(--color-primary)]/5 -translate-y-1/2 translate-x-1/4" />
                             <div className="absolute bottom-0 left-0 w-56 h-56 rounded-full bg-[var(--color-gold)]/5 translate-y-1/3 -translate-x-1/4" />
+                        </div>
+
+                        <div className="relative z-10 px-8 sm:px-12 py-12 sm:py-16 flex flex-col justify-end min-h-[280px] sm:min-h-[320px]">
+                            {/* Top row: Category + Difficulty */}
+                            <div className="flex items-center gap-3 mb-6 flex-wrap">
+                                <span className="text-xs font-bold px-3 py-1 rounded-full bg-white/15 text-white/90 uppercase tracking-wider backdrop-blur-sm">
+                                    {meta.category}
+                                </span>
+                                {meta.difficulty && (
+                                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-[var(--color-gold)]/20 text-[var(--color-gold)] uppercase tracking-wider">
+                                        {meta.difficulty}
+                                    </span>
+                                )}
+                            </div>
+
+                            {/* Title */}
+                            <h1
+                                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6"
+                                style={{ fontFamily: 'var(--font-serif)' }}
+                            >
+                                {meta.title}
+                            </h1>
+
+                            {/* Tags */}
+                            <div className="flex flex-wrap gap-2 mb-8">
+                                {meta.tags.slice(0, 4).map((tag) => (
+                                    <span
+                                        key={tag}
+                                        className="text-[11px] px-2.5 py-1 rounded-full bg-white/10 text-white/70 font-medium backdrop-blur-sm"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+
+                            {/* Bottom row: Author + Date + Read time */}
+                            <div className="flex items-center gap-4 pt-6 border-t border-white/10">
+                                <div className="w-10 h-10 rounded-full bg-white/15 ring-2 ring-[var(--color-primary)]/30 flex items-center justify-center backdrop-blur-sm">
+                                    <span className="text-white font-bold text-sm" style={{ fontFamily: 'var(--font-serif)' }}>R</span>
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-sm font-bold text-white/90">Researcher</span>
+                                    <span className="text-xs text-white/50 font-medium">{meta.date}</span>
+                                </div>
+                                <div className="ml-auto flex items-center gap-1.5 text-xs text-white/50 font-medium">
+                                    <span className="material-symbols-outlined text-sm">schedule</span>
+                                    {meta.readTime}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
