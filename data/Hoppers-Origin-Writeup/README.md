@@ -1160,7 +1160,7 @@ Hopper got giddy remembering where the siege on Wareville first began: VanChat. 
 *Evil-WinRM* PS C:\Users\qw1.brian.singh\Documents> 
 ```
 
-**Root flag found: ** `THM{496fde67-1d0d-4776-833d-b6371f290eac}`
+**Root flag found:** `THM{496fde67-1d0d-4776-833d-b6371f290eac}`
 
 
 ## 5-AI.VANCHAT.LOC 
