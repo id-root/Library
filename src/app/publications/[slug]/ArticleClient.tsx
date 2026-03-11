@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 
 interface WriteupMeta {
@@ -26,27 +27,16 @@ interface HeadingInfo {
 }
 
 export default function ArticleClient({ meta, markdownSections }: ArticleClientProps) {
-    const [readProgress, setReadProgress] = useState(0);
     const [activeTab, setActiveTab] = useState(0);
     const [activeHeadingId, setActiveHeadingId] = useState<string>('');
 
-    // Update reading progress
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-            const clientHeight = document.documentElement.clientHeight || window.innerHeight;
-
-            const totalHeight = scrollHeight - clientHeight;
-            const progress = totalHeight > 0 ? (scrollTop / totalHeight) * 100 : 0;
-            setReadProgress(Math.min(progress, 100));
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        // Trigger once to set initial state
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    // Smooth reading progress
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
     // Extract headings from markdown
     const headings = useMemo(() => {
@@ -117,9 +107,9 @@ export default function ArticleClient({ meta, markdownSections }: ArticleClientP
         <>
             {/* Reading Progress Bar - Fixed at top of viewport */}
             <div className="fixed top-0 left-0 w-full h-[4px] bg-transparent z-[99999]">
-                <div
-                    className="h-full bg-[var(--color-emerald-800)] dark:bg-[var(--color-primary)] transition-all duration-75 ease-out shadow-sm"
-                    style={{ width: `${readProgress}%` }}
+                <motion.div
+                    className="h-full bg-[var(--color-emerald-800)] dark:bg-[var(--color-primary)] shadow-sm origin-left"
+                    style={{ scaleX }}
                 />
             </div>
 
